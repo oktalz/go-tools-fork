@@ -633,3 +633,31 @@ function updateOtherWindow(e) {
   updatePlay(e);
   updateNotes();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('keydown', function(event) {
+      if (event.key == 'r') {
+          let activeElement = document.activeElement;    
+          if (activeElement.classList.contains('code') && activeElement.classList.contains('playground')) {
+              return;
+          }        
+          var button = document.querySelector('.current .run');
+          if (button) {
+              button.click();
+          }
+      }
+  });
+
+  document.addEventListener('keydown', function(event) {
+      if (event.key == 'c') {
+          let activeElement = document.activeElement;    
+          if (activeElement.classList.contains('code') && activeElement.classList.contains('playground')) {
+              return;
+          }        
+          var button = document.querySelector('.current .close');
+          if (button) {
+              button.click();
+          }
+      }
+  });
+});
